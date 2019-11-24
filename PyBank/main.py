@@ -52,10 +52,32 @@ with open(csvpath, newline='') as csvfile:
     #print it all
     #learned how to bold text here: https://stackoverflow.com/questions/8924173/how-do-i-print-bold-text-in-python
     
-    print('\033[1m' + "Financial Analysis")
-    print('\033[0m' + "----------------------------")
-    print(f"Total Months: {str(months)} months")
-    print(f"Total Profit: ${str(profit)}")
-    print(f"Average Monthly Change: ${str(int(average))}")
-    print(f"Biggest Gain: {str(gain_month)} (${str(big_gain)})")
-    print(f"Biggest Loss: {str(loss_month)} (${str(big_loss)})")
+    line1 = "Financial Analysis"
+    print('\033[1m' + line1)
+    line2 = "----------------------------"
+    print('\033[0m' + line2)
+    line3 = "Total Months: " + str(months) + " months"
+    print(line3)
+    line4 = "Total Profit: $" + str(profit)
+    print(line4)
+    line5 = "Average Monthly Change: $" + str(int(average)) 
+    print(line5)
+    line6 = "Biggest Gain: " + str(gain_month) + " ($" + str(big_gain) + ")"
+    print(line6)
+    line7 = "Biggest Loss: " + str(loss_month) + " ($" + str(big_loss) + ")"
+    print(line7)
+
+    #export it all
+    #learned it here: https://www.geeksforgeeks.org/reading-writing-text-files-python/
+
+    file1 = open("FinReport.txt", "w")
+    L = [line1 + "\n", 
+        line2 + "\n", 
+        line3 + "\n", 
+        line4 + "\n", 
+        line5 + "\n",
+        line6 + "\n",
+        line7 + "\n"
+        ]
+    file1.writelines(L)
+    file1.close()
